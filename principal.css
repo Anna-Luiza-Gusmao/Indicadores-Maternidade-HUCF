@@ -319,9 +319,22 @@ table th, td{
     width: 19em;
     height: 11.5em;
 }
+#robson{
+    width: 40.3em;
+    height: 16em;
+}
+#ocitocina{
+    width: 19em;
+    height: 17em;
+}
+#metodo{
+    width: 19em;
+    height: 17em;
+}
 
 #dados li{
-    width: 83.2em;
+    /*width: 83.2em;*/
+    width: 90%;
     height: auto;
 }
 #dados li:hover{

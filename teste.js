@@ -7,10 +7,10 @@ function regulaTamanho(){
     getComputedStyle(document.documentElement).getPropertyValue('--tamanho');
     /*alert(tamanho.offsetHeight);*/
 
-    if(tamanho.offsetHeight == 1166){
-        document.documentElement.style.setProperty('--tamanho', '1166px'); /*1920x1080*/
-    }else if(tamanho.offsetHeight == 1166){
-        document.documentElement.style.setProperty('--tamanho', '1166px'); /*1280x720 e 1366x768*/
+    if(tamanho.offsetHeight == 2884){
+        document.documentElement.style.setProperty('--tamanho', '2884px'); /*1920x1080*/
+    }else if(tamanho.offsetHeight == 3996){
+        document.documentElement.style.setProperty('--tamanho', '3996px'); /*1280x720 e 1366x768*/
     }else if(tamanho.offsetHeight == 1698){
         document.documentElement.style.setProperty('--tamanho', '1698px'); /*1600x1200*/
     }else if(tamanho.offsetHeight == 1698){
