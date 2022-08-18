@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita:ital,wght@1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+header{
+    background-color: #F5C9CE;
+    padding: 60px;
+    padding-left: 50px;
+    margin:auto;
+    position: relative;
+}
+#logo_hu{
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 0 1rem #9b3b55);
+    position: absolute;
+    left: 0;
+    top: 23%;
+    padding-left: 20px;
+}
+#cabecalho_mae{
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(0 0 1rem #9b3b55);
+    position: absolute;
+    right: 0;
+    top: 5%;
+    padding-right: 10px;
+}
+h1{
+    font-family: 'Sansita', sans-serif;
+    font-size: 40px;
+    color: #A65D70;
+    text-shadow: 0.1em 0.1em 0.65em #9b3b55;
+    padding-left: 130px;
+}
+hr{
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, #fad7dc, transparent);
+}
+nav li{
+    display: inline;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 14px;
+}
+nav li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 14px;
+    text-decoration: none; /*Tira a linha abaixo do link*/
+}
+nav li a:hover{
+    background-color: #D9A9B2;
+    font-size: 16px;
+}
+#span_nav {
+    padding : 10px;
+    background : #A65D70; 
+    color : white;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 14px;
+    cursor : pointer;
+    display: block;
+}
+.slide {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    background-color: #A65D70;
+    position: absolute;
+    height: var(--tamanho);
+    clear:both;
+    overflow: hidden;
+    text-align: center;
+    transition: height .4s ease;
+}
+/*---------------------Alterando tamanho da barra de seleção--------------------------*/
+:root{
+    --tamanho: 1048px;
+}
+/*--------------------------------------------------------------------------------------*/
+#touch {
+    position: absolute; 
+    opacity: 0; 
+    height: 0px;
+}    
+#touch:checked + .slide {
+    height: 0px;
+} 
+
+/*----------------------------------Checkbox p/ escolher as tabelas e gráficos-------------------------------------------*/
+.checkbox{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px; /*Espaçamento entre os checkbox*/
+    font-family: 'Paytone One', sans-serif;
+    font-size: 16px;
+    color: white;
+    line-height: 1.1;
+    display: grid; /*Distancia um checkbox do outro*/
+    grid-template-columns: 1em auto; /*Mantém o checkbox como uma coluna*/
+    gap: 0.5em; /*Distância da caixinha do checkbok da sua descrição*/
+    /*float: left; Coloca um checkbox do lado do outro*/
+    justify-content: center;
+}
+input[type="checkbox"]::before{
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0, 43% 62%);
+    background-color: #D9A9B2; /*Cor do check*/
+}
+input[type="checkbox"]{
+    appearance: none;
+    background-color: #A65D70;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+.checkbox + .checkbox{
+    margin-top: 1em;
+}
+/*----------------------------------Select dos anos e meses-------------------------------------------*/
+.ano{
+    display: block;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 14px;
+    background-color: #A65D70;
+}
+.custom-select {
+    position: relative;
+}
+.custom-select select {
+    display: none; 
+}
+.select-selected {
+    background-color: #A65D70;
+}
+.select-selected:hover {
+    background-color: #D9A9B2;
+}
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+.select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+.select-items {
+    background-color: #A65D70;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+.select-hide {
+    display: none;
+}
+.select-items div:hover, .same-as-selected {
+    background-color: #D9A9B2;
+}
+/*------------------------------------------------------------------------------------------------------------------------------------*/
+
+#gerarIndicadores{
+    width: 97%;
+    margin-top: 10px;
+    background-color: #D9A9B2;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0.7em 0.2em 0.8em #854d5b;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#gerarIndicadores:hover{
+    background-color: #A65D70;
+    color: #F5C9CE;
+    border: 2px solid #D9A9B2;
+    box-shadow: 0.1em 0.1em 0.3em #d9a9b2;
+}
+
+/*----------------------------------Mensagem de erro ano e mes não selecionado-------------------------------------------*/
+.ui-widget-header { /*Padding da escrita "Erro"*/
+    border: 1px solid #A65D70 !important; 
+    background: #A65D70 !important;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 16px;
+    font-weight: normal !important; 
+}
+.alerta#alerta_ano, #alerta_mes, #alerta_vazio{ /*Mensagem*/
+    display: none;
+    background: #E0CCCC;
+    border: none;
+    padding: 30px;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #3B3936;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+body{
+    background-color: #F5C9CE;
+    margin: 0;
+    height: 100%;
+}
+main{
+    height: 100%;
+}
+.tabelas{
+    /*width: 1050px;*/
+    /*margin: 0 auto;*/
+    text-align: center;
+    vertical-align: top;
+    padding: 10px;
+    box-sizing: border-box;   
+}
+.tabelas li{
+    display: inline-block;
+    /*border-color: #795E61;
+    border-width: 2px;
+    border-style: solid;*/
+    border: 2px solid #9b3b55; /*Igual a de cima com tamanho tipo cor*/
+    border-radius: 8px;
+    box-shadow: 0.1em 0.1em 0.5em #BF6F6F;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: #fad7dc;
+    width: 19em;
+    height: 19em;
+}
+.tabelas li:hover{
+    background-color: #F5C9CE;
+    border-color: #BF6F6F;
+}
+.tabelas h2{
+    font-family: 'Paytone One', sans-serif;
+    font-size: 15px;
+    color: #BF6F6F;
+    margin-bottom: 10px;
+}
+#table_idade{
+    margin-top: 50px;
+}
+#table_gestacional{
+    margin-top: 65px;
+}
+#table_gestacao{
+    margin-top: 30px;
+}
+#table_parto{
+    margin-top: 25px;
+}
+table{
+    text-align: center;
+    border: 1px solid #D9A9B2;
+    border-collapse: separate;
+    margin: auto;
+}
+table th{
+    background-color: #D9A9B2;
+    font-weight: bold;
+}
+table tr:nth-child(odd){
+    background-color: #D9A9B2;
+}
+table th, td{
+    border: 0.5px solid #F5C9CE;
+    padding: 4px;
+}
+#four_lines{
+    width: 19em;
+    height: 9em;
+}
+#five_lines{
+    width: 19em;
+    height: 10em;
+}
+#six_lines{
+    width: 19em;
+    height: 11.5em;
+}
+
+#dados li{
+    width: 83.2em;
+    height: auto;
+}
+#dados li:hover{
+    background-color: #fad7dc;
+    border-color: #9b3b55;
+}
+#dados h2{
+    font-family: 'Paytone One', sans-serif;
+    font-size: 20px;
+    color: #BF6F6F;
+    margin: auto;
+}

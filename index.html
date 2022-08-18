@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" type="text/css" href="principal.css">
+        <script src="pgInicial.js" type="text/javascript"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Maternidade</title>
+        <style>
+            .ui-widget-content {
+                border: 1px solid #dddddd;
+                background: red;
+                color: #333333;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>  
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+    </head>
+
+    <body>
+        <header>
+            <img id="logo_hu" src="logohu.png">
+            <h1>Indicadores Maternidade</h1>
+            <img id="cabecalho_mae" src="iconemae.png">
+        </header>
+        <hr>
+        <script src="teste.js" type="text/javascript"></script>
+        
+        <nav>
+            <label for="touch">
+                <span id="span_nav"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg></span>
+            </label>               
+            <input type="checkbox" id="touch"> 
+            <ul class="slide">
+                <fieldset  style="padding-bottom: 15px;"> <!--Checkbox para selecionar tabelas e gráficos-->
+                    <div>
+                        <label class="checkbox">
+                            <input type="checkbox" id="check_tabela" name="view" value="select_table" checked>
+                            Tabelas
+                        </label>
+                    </div>
+                    <div>
+                        <label class="checkbox">
+                            <input type="checkbox" id="check_grafico" name="view" value="select_graphics">
+                            Gráficos
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div style="padding-bottom: 20px;">
+                    <li>
+                        <form id="form_ano"></form>
+                        <label class="ano">Ano</label>
+                        <div class="custom-select">
+                            <select id="ano" name="ano" form="form_ano">
+                                <option value="">(Selecione)</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>   
+                        </div>              
+                    </li>
+                </div>
+                <div style="padding-bottom: 20px;">
+                    <li>
+                        <form id="form_mes"></form>
+                        <label class="ano">Mês</label>
+                        <div class="custom-select">
+                            <select id="mes" name="mes" form="form_mes">
+                                <option value="">(Selecione)</option>
+                                <option value="Janeiro">Janeiro</option>
+                                <option value="Fevereiro">Fevereiro</option>
+                                <option value="Março">Março</option>
+                                <option value="Abril">Abril</option>
+                                <option value="Maio">Maio</option>
+                                <option value="Junho">Junho</option>
+                                <option value="Julho">Julho</option>
+                                <option value="Agosto">Agosto</option>
+                                <option value="Setembro">Setembro</option>
+                                <option value="Outubro">Outubro</option>
+                                <option value="Novembro">Novembro</option>
+                                <option value="Dezembro">Dezembro</option>
+                            </select>   
+                        </div>                    
+                    </li>
+                </div>
+                <li><input id="gerarIndicadores" type="submit" value="Gerar Indicadores" onclick="valorSelecionado();"></li>
+            </ul>
+        </nav>
+        <div id="alerta_ano" title="Erro" class="alerta">
+            <p>Selecione um ano para gerar os indicadores</p>
+        </div>
+        <div id="alerta_mes" title="Erro" class="alerta">
+            <p>Selecione um mês para gerar os indicadores</p>
+        </div>
+        <div id="alerta_vazio" title="Erro" class="alerta">
+            <p>Selecione um ano e um mês para gerar os indicadores</p>
+        </div>
+        <script src="navegacao.js"></script>
+
+        <main style="margin-left:15%;">
+            <div id="todas_tabelas" class="tabelas">
+                    <ul id="dados">
+                        <li>
+                            <h2>Dados Obstétricos</h2>
+                        </li>
+                    </ul> 
+                    <ul>
+                        <li class="h2_idade">
+                            <h2>Idade</h2>
+                            <table id="table_idade"> 
+                                    <tr>
+                                        <th>Idade</th>
+                                        <th>Quantidade</th>
+                                        <th>%</th>
+                                    </tr>
+                                    <tr>
+                                        <td>12-19 anos</td>
+                                        <td>23</td>
+                                        <td>13,61%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20-34 anos</td>
+                                        <td>114</td>
+                                        <td>67,46%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>35-39 anos</td>
+                                        <td>21</td>
+                                        <td>12,43%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>+ de 39 anos</td>
+                                        <td>11</td>
+                                        <td>6,51%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold;">Total</td>
+                                        <td>235</td>
+                                        <td>100%</td>
+                                    </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <h2>N° da Gestação</h2>
+                            <table id="table_gestacao">
+                                <tr>
+                                    <th>Idade</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>21</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>+ de 5</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <h2>Idade Gestacional</h2>
+                            <table id="table_gestacional">
+                                <tr>
+                                    <th>Idade Gestacional</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Até 36 semanas</td>
+                                    <td>24</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>37-40 semanas</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>+ de 40 semanas</td>
+                                    <td>21</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <h2>Anestesia</h2>
+                            <table>
+                                <tr>
+                                    <th>Anestesia</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Sedação</td>
+                                    <td>0</td>
+                                    <td>0,00%</td>
+                                </tr>
+                                <tr>
+                                    <td>Bloqueio Pudendo Bilateral</td>
+                                    <td>14</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>Geral Endovenosa</td>
+                                    <td>21</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td>Local</td>
+                                    <td>0</td>
+                                    <td>0,00%</td>
+                                </tr>
+                                <tr>
+                                    <td>Peridural Lombar Contínua</td>
+                                    <td>0</td>
+                                    <td>0,00%</td>
+                                </tr>
+                                <tr>
+                                    <td>Raque Anestesia Dose Única</td>
+                                    <td>0</td>
+                                    <td>0,00%</td>
+                                </tr>
+                                <tr>
+                                    <td>Não Solicitada</td>
+                                    <td>0</td>
+                                    <td>0,00%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="six_lines">
+                            <h2>N° de Consultas</h2>
+                            <table>
+                                <tr>
+                                    <th>Idade</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Nenhuma</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>1-5</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>5-10</td>
+                                    <td>21</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td>+ de 10</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="six_lines">
+                            <h2>N° de Cesárea</h2>
+                            <table>
+                                <tr>
+                                    <th>Idade</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>21</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td>+ de 3</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="six_lines">
+                            <h2>Partos</h2>
+                            <table> 
+                                <tr>
+                                    <th>Partos</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Normal</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>Normal Gemelar</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>Cesárea</td>
+                                    <td>21</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td>Cesárea Gemelar</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="six_lines">
+                            <h2>Posição do Parto</h2>
+                            <table>
+                                <tr>
+                                    <th>Posição do Parto</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Deitada</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>Semi Deitada</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>Sentada</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>Cócoras</td>
+                                    <td>4</td>
+                                    <td>7,46%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="six_lines">
+                            <h2>N° de Parto</h2>
+                            <table id="table_parto">
+                                <tr>
+                                    <th>N° de Parto</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Multípara</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>Nulípara</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="six_lines">
+                            <h2>Trabalho de Parto</h2>
+                            <table id="table_parto">
+                                <tr>
+                                    <th>Trabalho de Parto</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Espontâneo</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>Induzido</td>
+                                    <td>14</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="six_lines">
+                            <h2>Acompanhante</h2>
+                            <table id="table_parto">
+                                <tr>
+                                    <th>Acompanhante</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Sim</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>Não</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="six_lines">
+                            <h2>Laceração</h2>
+                            <table>
+                                <tr>
+                                    <th>Laceração</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>1° Grau</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>2° Grau</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>3° Grau</td>
+                                    <td>21</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td>Não Houve</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="four_lines">
+                            <h2>Epsio</h2>
+                            <table>
+                                <tr>
+                                    <th>Epsio</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Sim</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>Não</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>  
+                        <li id="four_lines">
+                            <h2>Método Não Farmaceutico</h2>
+                            <table>
+                                <tr>
+                                    <th>Método Não Farmaceutico</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Sim</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>Não</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li id="four_lines">
+                            <h2>DIU</h2>
+                            <table>
+                                <tr>
+                                    <th>DIU</th>
+                                    <th>Quantidade</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>Sim</td>
+                                    <td>23</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>Não</td>
+                                    <td>114</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td>235</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                <ul id="dados">
+                    <li>
+                        <h2>Dados do Recém-Nascido</h2>
+                    </li>
+                </ul> 
+                <ul>
+                    <li id="five_lines">
+                        <h2>Apgar 1° Minuto</h2>
+                        <table>
+                            <tr>
+                                <th>Apgar 1° Minuto</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Maior ou igual a 7</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>- de 7</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td>Sem apgar</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li id="five_lines">
+                        <h2>Apgar 5° Minuto</h2>
+                        <table>
+                            <tr>
+                                <th>Apgar 5° Minuto</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Maior ou igual a 7</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>- de 7</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td>Sem apgar</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li id="five_lines">
+                        <h2>Estado do RN</h2>
+                        <table>
+                            <tr>
+                                <th>Estado do RN</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Bem</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>Deprimido</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td>Natimorto</td>
+                                <td>21</td>
+                                <td>12,43%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li id="five_lines">
+                        <h2>Sexo do RN</h2>
+                        <table> 
+                            <tr>
+                                <th>Sexo</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Feminino</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>Masculino</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td>Não Definido</td>
+                                <td>21</td>
+                                <td>12,43%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li id="five_lines">
+                        <h2>Peso do RN</h2>
+                        <table>
+                            <tr>
+                                <th>Peso</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>- de 2.500</td>
+                                <td>0</td>
+                                <td>0,00%</td>
+                            </tr>
+                            <tr>
+                                <td>2.500-3.500</td>
+                                <td>14</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td>+ de 3.500</td>
+                                <td>21</td>
+                                <td>12,43%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li id="four_lines">
+                        <h2>Enleamento</h2>
+                        <table>
+                            <tr>
+                                <th>Enleamento</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Sim</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>Não</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>  
+                    <li id="four_lines">
+                        <h2>Campleamento</h2>
+                        <table>
+                            <tr>
+                                <th>Campleamento</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Maior que 1 minuto</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>Menor que 1 minuto</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>  
+                    <li id="four_lines">
+                        <h2>Amamentação Exclusiva</h2>
+                        <table>
+                            <tr>
+                                <th>Amamentação Exclusiva</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Sim</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>Não</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li id="four_lines">
+                        <h2>Aleitamento na Alta</h2>
+                        <table> 
+                            <tr>
+                                <th>Aleitamento na Alta</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Exclusivo</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>Complemento</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li id="four_lines">
+                        <h2>Aleitamento na 1ª hora</h2>
+                        <table> 
+                            <tr>
+                                <th>Aleitamento na 1ª hora</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Sim</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>Não</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li id="four_lines">
+                        <h2>Teste do Olhinho</h2>
+                        <table>
+                            <tr>
+                                <th>Teste do Olhinho</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Sim</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>Não</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li id="four_lines">
+                        <h2>Teste do Coraçãozinho</h2>
+                        <table>
+                            <tr>
+                                <th>Teste do Coraçãozinho</th>
+                                <th>Quantidade</th>
+                                <th>%</th>
+                            </tr>
+                            <tr>
+                                <td>Sim</td>
+                                <td>23</td>
+                                <td>13,61%</td>
+                            </tr>
+                            <tr>
+                                <td>Não</td>
+                                <td>114</td>
+                                <td>67,46%</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Total</td>
+                                <td>235</td>
+                                <td>100%</td>
+                            </tr>
+                        </table>
+                    </li>
+                    </ul>
+            </div>  
+        </main>
+    </body>
+</html>
