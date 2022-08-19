@@ -16,6 +16,17 @@
                 color: #333333;
             }
         </style>
+        <script type="text/javascript" language="JavaScript">
+            function alterarTexto(){
+                var novoAno = document.getElementById("ano").value;
+                var novoMes = document.getElementById("mes").value;
+                if(document.getElementById("mes").value == "Todos"){
+                    document.getElementById("texto").innerHTML = novoAno;
+                }else{
+                    document.getElementById("texto").innerHTML = novoMes + " de " + novoAno;
+                }
+            }
+        </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
         <script src="http://code.jquery.com/jquery-1.10.2.js"></script>  
@@ -34,13 +45,14 @@
         <nav>
             <label for="touch">
                 <span id="span_nav">
-                    <div>
+                    <div style="float: left;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                         </svg>
                     </div>
+                    <div id="texto" style="text-align: center;">--------</div>
                 </span>
-            </label>               
+            </label>              
             <input type="checkbox" id="touch"> 
             <ul class="slide">
                 <fieldset  style="padding-bottom: 15px;"> <!--Checkbox para selecionar tabelas e gráficos-->
@@ -97,7 +109,7 @@
                         </div>                    
                     </li>
                 </div>
-                <li><input id="gerarIndicadores" type="submit" value="Gerar Indicadores" onclick="valorSelecionado();"></li>
+                <li><input id="gerarIndicadores" type="submit" value="Gerar Indicadores" onclick="valorSelecionado(), alterarTexto();"></li>
             </ul>
         </nav>
         <div id="alerta_ano" title="Erro" class="alerta">
