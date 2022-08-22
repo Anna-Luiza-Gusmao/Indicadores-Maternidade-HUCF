@@ -20,9 +20,13 @@
             function alterarTexto(){
                 var novoAno = document.getElementById("ano").value;
                 var novoMes = document.getElementById("mes").value;
-                if(document.getElementById("mes").value == "Todos"){
+                if(document.getElementById("ano").value == "" && document.getElementById("mes").value == "" || document.getElementById("ano").value == "" || document.getElementById("mes").value == ""){
+                    document.getElementById("texto").style.color = "#A65D70";
+                }else if(document.getElementById("mes").value == "Todos"){
+                    document.getElementById("texto").style.color = "white";
                     document.getElementById("texto").innerHTML = novoAno;
                 }else{
+                    document.getElementById("texto").style.color = "white";
                     document.getElementById("texto").innerHTML = novoMes + " de " + novoAno;
                 }
             }
@@ -50,7 +54,7 @@
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                         </svg>
                     </div>
-                    <div id="texto" style="text-align: center;">--------</div>
+                    <div id="texto" style="text-align: center; color: #A65D70;">vazio</div>
                 </span>
             </label>              
             <input type="checkbox" id="touch"> 
