@@ -7,16 +7,14 @@ function regulaTamanho(){
     getComputedStyle(document.documentElement).getPropertyValue('--tamanho');
     /*alert(tamanho.offsetHeight);*/
 
-    if(tamanho.offsetHeight == 2852){
-        document.documentElement.style.setProperty('--tamanho', '2852px'); /*1920x1080*/
-    }else if(tamanho.offsetHeight == 3932){
-        document.documentElement.style.setProperty('--tamanho', '3932px'); /*1280x720 e 1366x768*/
-    }else if(tamanho.offsetHeight == 3932){
-        document.documentElement.style.setProperty('--tamanho', '3932px'); /*1600x1200*/
-    }else if(tamanho.offsetHeight == 3932){
-        document.documentElement.style.setProperty('--tamanho', '3932px'); /*1440x900*/
-    }else if(tamanho.offsetHeight == 5452){
-        document.documentElement.style.setProperty('--tamanho', '5452px'); /*1024x768*/
+    if(tamanho.offsetHeight == 2884){
+        document.documentElement.style.setProperty('--tamanho', '2884px'); /*1920x1080*/
+    }else if(tamanho.offsetHeight == 4334){
+        document.documentElement.style.setProperty('--tamanho', '4334px'); /*1280x720 e 1366x768*/
+    }else if(tamanho.offsetHeight == 4334){
+        document.documentElement.style.setProperty('--tamanho', '4334px'); /*1600x1200*/
+    }else if(tamanho.offsetHeight == 4334){
+        document.documentElement.style.setProperty('--tamanho', '4334px'); /*1440x900*/
     }
 }
 

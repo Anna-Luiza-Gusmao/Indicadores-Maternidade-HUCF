@@ -247,6 +247,7 @@ select:focus + .focus{
     color: #3B3936;
 }
 /*---------------------------------------------------------------------------------------------------------------------------------*/
+
 body{
     background-color: #F5C9CE;
     margin: 0;
@@ -327,7 +328,7 @@ table th, td{
 }
 #six_lines{
     width: 19em;
-    height: 11.5em;
+    height: 12.5em;
 }
 #robson{
     width: 40.3em;
@@ -355,4 +356,7 @@ table th, td{
     font-size: 20px;
     color: #BF6F6F;
     margin: auto;
+}
+a{
+    color: #6e4f4f;
 }

@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita:ital,wght@1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+header{
+    background-color: #F5C9CE;
+    padding: 60px;
+    padding-left: 50px;
+    margin:auto;
+    position: relative;
+}
+#logo_hu{
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 0 1rem #9b3b55);
+    position: absolute;
+    left: 0;
+    top: 23%;
+    padding-left: 20px;
+}
+#cabecalho_mae{
+    width: 150px;
+    height: 150px;
+    filter: drop-shadow(0 0 1rem #9b3b55);
+    position: absolute;
+    right: 0;
+    top: 5%;
+    padding-right: 10px;
+}
+h1{
+    font-family: 'Sansita', sans-serif;
+    font-size: 40px;
+    color: #A65D70;
+    text-shadow: 0.1em 0.1em 0.65em #9b3b55;
+    padding-left: 130px;
+}
+hr{
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, #fad7dc, transparent);
+}
+body{
+    background-color: #F5C9CE;
+    margin: 0;
+    height: 100%;
+}
+main{
+    height: 100%;
+}
+#voltar{
+    width: 100%;
+    text-align: right;
+}
+#botao_voltar{
+    margin-right: 30px;
+    background-color: #A65D70;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0.7em 0.2em 0.8em #854d5b;
+    font-family: 'Paytone One', sans-serif;
+    font-size: 16px;
+    color: white;
+    padding: 10px 30px 10px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+#botao_voltar:hover{
+    opacity: 0.9;
+}
+#quadro{
+    margin: 20px;
+    box-sizing: border-box; 
+    border: 2px solid #9b3b55;
+    border-radius: 8px;
+    box-shadow: 0.1em 0.1em 0.5em #BF6F6F;
+    padding: 15px;
+}
+table{
+    text-align: center;
+    border: 1px solid #D9A9B2;
+    border-collapse: separate;
+    margin-left: 5px;
+}
+table th{
+    background-color: #D9A9B2;
+    font-weight: bold;
+}
+table tr:nth-child(odd){
+    background-color: #D9A9B2;
+}
+table th, td{
+    border: 0.5px solid #F5C9CE;
+    padding: 4px;
+}
+h3{
+    font-family: 'Paytone One', sans-serif;
+    color: #BF6F6F;
+    font-size: 16px;
+}
