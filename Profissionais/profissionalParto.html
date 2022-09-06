@@ -17,9 +17,11 @@
                 window.history.back();
             }
         </script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> <!---Carregamento do Gráfico-->
     </head>
 
     <body>
+        <script src="graficoPartoNormal.js" type="text/javascript"></script>
         <header>
             <img id="logo_hu" src="../logohu.png">
             <h1>Indicadores Maternidade: Profissionais do Parto Normal</h1>
@@ -31,171 +33,172 @@
             <div id="voltar">
                 <a><input id="botao_voltar" type="submit" value="Voltar" onclick="retornaPagInicial()"></a>
             </div>
-            <div>
-                <div id="quadro">
-                    <div>
-                        <table> 
-                            <tr>
-                                <th>Nome</th>
-                                <th>Nº de Partos</th>
-                                <th>%</th>
-                            </tr>
-                            <tr>
-                                <td>ALFREU RONEM DE OLIVEIRA</td>
-                                <td>20</td>
-                                <td>13,61%</td>
-                            </tr>
-                            <tr>
-                                <td>MARIA FERNANDA DIAS BASILIO</td>
-                                <td>14</td>
-                                <td>67,46%</td>
-                            </tr>
-                            <tr>
-                                <td>SAMARA SILVEIRA MARQUES MENDES</td>
-                                <td>16</td>
-                                <td>12,43%</td>
-                            </tr>
-                            <tr>
-                                <td>HUBERT CALDEIRA</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>ELISAMA OLIVEIRA SOUZA GONCALVES</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>WELLINGTON DA SILVA VICTAL</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>OLIVIA ABREU VERSIANI</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>LARISSA BANDEIRA VERISSIMO DE ABREU</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>DIANA MATOS SILVA</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>PRISCILLA BATISTA LESSA</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>ALFREU RONEM DE OLIVEIRA</td>
-                                <td>20</td>
-                                <td>13,61%</td>
-                            </tr>
-                            <tr>
-                                <td>MARIA FERNANDA DIAS BASILIO</td>
-                                <td>14</td>
-                                <td>67,46%</td>
-                            </tr>
-                            <tr>
-                                <td>SAMARA SILVEIRA MARQUES MENDES</td>
-                                <td>16</td>
-                                <td>12,43%</td>
-                            </tr>
-                            <tr>
-                                <td>HUBERT CALDEIRA</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>ELISAMA OLIVEIRA SOUZA GONCALVES</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>WELLINGTON DA SILVA VICTAL</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>OLIVIA ABREU VERSIANI</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>LARISSA BANDEIRA VERISSIMO DE ABREU</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>DIANA MATOS SILVA</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>PRISCILLA BATISTA LESSA</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>SAMARA SILVEIRA MARQUES MENDES</td>
-                                <td>16</td>
-                                <td>12,43%</td>
-                            </tr>
-                            <tr>
-                                <td>HUBERT CALDEIRA</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>ELISAMA OLIVEIRA SOUZA GONCALVES</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>WELLINGTON DA SILVA VICTAL</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>OLIVIA ABREU VERSIANI</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>LARISSA BANDEIRA VERISSIMO DE ABREU</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>DIANA MATOS SILVA</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td>PRISCILLA BATISTA LESSA</td>
-                                <td>11</td>
-                                <td>6,51%</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: bold;">Total de Partos</td>
-                                <td>66</td>
-                                <td>100%</td>
-                            </tr>
-                        </table>
-                        <div style="margin-top: 15px; margin-left: 5px;">
-                            <h3>Total de Profissionais: <b>36</b></h3>
+            <div id="alinhamento">
+                <div style="padding-right: 80px;">
+                    <div id="quadro">
+                        <div>
+                            <table> 
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Nº de Partos</th>
+                                    <th>%</th>
+                                </tr>
+                                <tr>
+                                    <td>ALFREU RONEM DE OLIVEIRA</td>
+                                    <td>20</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>MARIA FERNANDA DIAS BASILIO</td>
+                                    <td>14</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>SAMARA SILVEIRA MARQUES MENDES</td>
+                                    <td>16</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td>HUBERT CALDEIRA</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>ELISAMA OLIVEIRA SOUZA GONCALVES</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>WELLINGTON DA SILVA VICTAL</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>OLIVIA ABREU VERSIANI</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>LARISSA BANDEIRA VERISSIMO DE ABREU</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>DIANA MATOS SILVA</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>PRISCILLA BATISTA LESSA</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>ALFREU RONEM DE OLIVEIRA</td>
+                                    <td>20</td>
+                                    <td>13,61%</td>
+                                </tr>
+                                <tr>
+                                    <td>MARIA FERNANDA DIAS BASILIO</td>
+                                    <td>14</td>
+                                    <td>67,46%</td>
+                                </tr>
+                                <tr>
+                                    <td>SAMARA SILVEIRA MARQUES MENDES</td>
+                                    <td>16</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td>HUBERT CALDEIRA</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>ELISAMA OLIVEIRA SOUZA GONCALVES</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>WELLINGTON DA SILVA VICTAL</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>OLIVIA ABREU VERSIANI</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>LARISSA BANDEIRA VERISSIMO DE ABREU</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>DIANA MATOS SILVA</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>PRISCILLA BATISTA LESSA</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>SAMARA SILVEIRA MARQUES MENDES</td>
+                                    <td>16</td>
+                                    <td>12,43%</td>
+                                </tr>
+                                <tr>
+                                    <td>HUBERT CALDEIRA</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>ELISAMA OLIVEIRA SOUZA GONCALVES</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>WELLINGTON DA SILVA VICTAL</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>OLIVIA ABREU VERSIANI</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>LARISSA BANDEIRA VERISSIMO DE ABREU</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>DIANA MATOS SILVA</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td>PRISCILLA BATISTA LESSA</td>
+                                    <td>11</td>
+                                    <td>6,51%</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total de Partos</td>
+                                    <td>66</td>
+                                    <td>100%</td>
+                                </tr>
+                            </table>
+                            <div style="margin-top: 15px; margin-left: 5px;">
+                                <h3>Total de Profissionais: <b>36</b></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>   
-            <div id="grafico_profissionais">
-
-            </div>  
-                     
+                </div>   
+                <div id="chart_div" style="box-shadow: 0.1em 0.1em 0.8em #854d5b;">
+                    
+                </div>  
+            </div>      
         </main>
     </body>
 </html>

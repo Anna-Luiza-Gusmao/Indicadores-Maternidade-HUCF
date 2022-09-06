@@ -289,17 +289,20 @@ main{
     color: #BF6F6F;
     margin-bottom: 10px;
 }
-#table_idade{
+#idade{
     margin-top: 50px;
 }
-#table_gestacional{
+#idade_gestacional{
     margin-top: 65px;
 }
-#table_gestacao{
+#no_gestacao{
     margin-top: 30px;
 }
-#table_parto{
+#no_parto{
     margin-top: 25px;
+}
+#table_c_robson{
+    margin-top: 35px;
 }
 table{
     text-align: center;
@@ -334,7 +337,11 @@ table th, td{
     width: 40.3em;
     height: 16em;
 }
-#ocitocina{
+#c_robson{
+    width: 19em;
+    height: 16em;
+}
+#ocitocina_li{
     width: 19em;
     height: 17em;
 }

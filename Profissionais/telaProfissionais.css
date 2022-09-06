@@ -48,7 +48,7 @@ main{
 #voltar{
     width: 100%;
     text-align: right;
-}
+} 
 #botao_voltar{
     margin-right: 30px;
     background-color: #A65D70;
@@ -75,6 +75,13 @@ main{
     border-radius: 8px;
     box-shadow: 0.1em 0.1em 0.5em #BF6F6F;
     padding: 15px;
+}
+#alinhamento{
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0px;
 }
 table{
     text-align: center;
